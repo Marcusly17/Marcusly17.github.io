@@ -1,0 +1,465 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-size-adjust: inherit; font-kerning: inherit; font-variant-alternates: inherit; font-variant-ligatures: inherit; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-variant-position: inherit; font-feature-settings: inherit; font-optical-sizing: inherit; font-variation-settings: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; border-right-style: none; border-right-color: currentcolor; background-color: inherit; }
+.CodeMirror-linenumber { -webkit-user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: medium; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: medium !important; border-style: none !important; border-color: currentcolor !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; border-bottom-style: none; border-bottom-color: currentcolor; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: medium; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.428571rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: white;
+    --window-border: none;
+    --search-select-bg-color: #575c61;
+    --active-file-bg-color: #f1f4f5;
+    --item-hover-bg-color: #f1f4f5;
+    --item-hover-text-color: black;
+    --control-text-color: #555;
+}
+
+@include-when-export url(https://raw.githubusercontent.com/slashfoo/lmweb/master/style/latinmodern-mono-light.css);
+
+html {
+    font-size: 12pt;
+}
+
+#write {
+    font-family: "STIX2Text", "Times New Roman", "serif";
+    line-height: 1.5em;
+    padding: 10%;
+    padding-top: 5%;
+}
+
+.file-list-item-summary {
+    height: 36px;
+}
+
+.file-list-item {
+    padding-top: 18px !important;
+    padding-bottom: 18px;
+}
+
+#sidebar-loading-template.file-list-item {
+    padding-top: 0 !important;
+}
+
+a, a:visited {
+    color: #a00;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+h1  {
+    font-size: 2.4em;
+}
+
+#write h1  {
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+h5  {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+pre, code {
+    font-family: 'Latin Modern Mono Light', "Latin Modern Mono", monospace !important;
+}
+
+.footnotes {
+    display: list-item;
+    margin-left: 1em;
+}
+
+.md-fences {
+    border: 1px solid;
+}
+
+.md-fences.md-fences-with-lineno {
+    border: none;
+}
+
+.CodeMirror-linenumber {
+    color: #333;
+}
+
+*.in-text-selection,
+::selection,
+.CodeMirror-selected {
+    background: var(--search-select-bg-color);
+    color: var(--search-select-text-color) !important;
+    text-shadow: none;
+}
+
+a.md-toc-inner {
+    color: var(--text-color);
+}
+
+.cm-s-typora-default .cm-link {
+    color: #a00;
+    text-decoration: underline;
+}
+
+.cm-s-typora-default .cm-header, .cm-s-typora-default .cm-property {
+    color: black;
+}
+
+#typora-source .CodeMirror-lines {
+    -webkit-font-smoothing: auto;
+    max-width: 1000px;
+}
+
+.md-def-name:before,
+.md-def-name:after {
+    color: #2d2d2d;
+}
+
+sup.md-footnote {
+    background-color: initial;
+    color: inherit;
+}
+
+mark {
+    background: #fff387;
+}
+
+td, th {
+    border: 1px solid;
+    padding-left: 1ch;
+    padding-right: 1ch;
+}
+
+/*table tr[cid]:first-child > td {
+    border-top: 3px double;
+}*/
+
+th {
+    border-bottom: 0;
+    padding-top: 2px;
+    background: #575c61;
+    border-color: #333;
+    color: #f3f3f3;
+}
+
+pre.md-meta-block {
+    border: 1px solid #a2a9b1;
+    background-color: #f8f9fa;
+    padding: 5px;
+    margin-bottom: 1em;
+}
+
+.task-list-item input:before {
+    content: '\221A';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.task-list-item input:checked:before,
+.task-list-item input[checked]:before{
+    color: inherit;
+}
+
+.md-task-list-item > input {
+    top: auto;
+    margin-left: -1.1em;
+    font-size: 1.3em;
+    margin-top: 0px;
+    -webkit-appearance: none;
+}
+
+.md-task-list-item input:before {
+    content: '\2610';
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.6rem;
+    vertical-align: middle;
+    text-align: center;
+    color: #bbb;
+    background-color: inherit;
+}
+
+.md-task-list-item input:checked:before,
+.md-task-list-item input[checked]:before{
+    color: inherit;
+    content: '\2611';
+}
+
+.task-list-item {
+    padding-left: 1.5em;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 0.25em 24px;
+    position: relative;
+    color: #383838;
+    border-left: 2px solid;
+    
+}
+
+#write > blockquote {
+    padding: 0.25em 30px;
+    margin-left: -32px;
+    width: calc(100% + 32px);
+}
+
+#write >  .md-fences-with-lineno {
+    margin-left: -33px;
+    color: black;
+}
+
+.CodeMirror-linenumber {
+    min-width: 25px;
+}
+
+.md-header {
+    font-size: inherit !important;
+}
+
+/*blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    color: #7a7a7a;
+}*/
+
+
+ @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}} .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} h1,h2,h3,h4,h5 {white-space:pre-line}
+</style><title>syllabus103fall23</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='qf---103-introduction-to-financial-tools-and-technology'><span>QF - 103 Introduction to Financial Tools and Technology</span></h1><h2 id='syllabus-fall-2023'><span>Syllabus (Fall 2023)</span></h2><h2 id='instructor'><span>Instructor</span></h2><p><strong><span>Instructor: Yue Leng</span></strong></p><p><span>Email: </span><a href='https://sit.instructure.com/courses/52644/pages/yleng2@stevens.edu'><span>yleng2@stevens.edu</span></a></p><p><span>Office: Babbio Center 3rd floor, Room 309</span></p><h3 id='class-meetings'><span>Class Meetings</span></h3><p><span>Class Time: QF103 12:00 pm -12:50 pm</span></p><p><span>Class Room: Babbio Center 110, Hanlon Financial Systems Lab II (1st floor)</span></p><h3 id='office-hour'><span>Office Hour</span></h3><p><span>Office Hours: Friday 1:15 pm – 3:30 pm Reserve a time slot via </span><a href='https://calendly.com/yueleng/office-hour'><span>Calendly</span></a></p><h3 id='course-objective'><span>Course Objective:</span></h3><p><span>This course is designed to teach students the nature and availability of the financial data and technology tools available at Stevens Institute of Technology, introductory concepts of financial markets, and other relevant tools in financial practice. The focus will be on equity, commodities, foreign exchange (FX), fixed income, and linear and/or nonlinear derivatives (futures, options, swaps, forward rate agreements, etc.) Students will learn how to use the Bloomberg terminal, and as part of the course, they will get a Bloomberg certification. The course also introduces the fundamentals of applied statistics.</span></p><p><em><span>Credit hour: 1</span></em></p><p><em><span>The lecturer reserves the right to make adjustments to the course material as necessary.</span></em></p><h3 id='outcomes'><span>Outcomes:</span></h3><ol start='' ><li><p><span>After taking this course, students will be able to:</span></p></li><li><p><span>Understand the general concepts of financial markets, firms’ financial data, and economic indicators.</span></p></li><li><p><span>Navigate the available data using the Bloomberg terminal.</span></p></li><li><p><span>Retrieve relevant information from the Bloomberg terminal for their projects in Excel or in R Studio.</span></p></li><li><p><span>Perform simple data analysis on data set, basic statistics concepts.</span></p></li><li><p><span>Analyzing a company&#39;s bond or stock and recommending for short/long position.</span></p></li><li><p><span>Construct and analyze their portfolios.</span></p></li></ol><h3 id='course-materials'><span>Course Materials</span></h3><h4 id='bloomberg-for-education-links-to-an-external-site'><a href='https://www.bloomberg.com/professional/product/bloomberg-market-concepts/'><span>Bloomberg For Education (Links to an external site.)</span></a></h4><p><span>Bloomberg Market Concepts (BMC) is a self-paced e-learning course that provides an interactive introduction to the financial markets. BMC consists of 8 modules — Core Concepts (includes four modules – Economic Indicators, Currencies, Fixed Income, Equities), Terminal Basics, Commodities, Equity Options, and Portfolio Management.</span></p><h5 id='class-code-for-bmc'><span>CLASS CODE for BMC</span></h5><h2 id='9rbcdvnstx'><u><span>9RBCDVNSTX</span></u></h2><p><strong><span>YOU MUST ENTER THE CLASS CODE TO JOIN THE CLASS, OTHERWISE, YOU WILL NOT RECEIVE YOUR CREDITS!</span></strong></p><h4 id='suggested-daily-readings'><span>Suggested Daily Readings:</span></h4><ul><li><p><span>Bloomberg News (from Bloomberg Terminal)</span></p></li><li><p><span>Wall Street Journal</span></p></li><li><p><span>Financial Times</span></p></li></ul><h3 id='homework'><span>Homework:</span></h3><h4 id='part-i-bloomberg-courses'><span>Part I: Bloomberg Courses </span></h4><p><span>Students must </span><strong><span>complete all courses</span></strong><span> on the Bloomberg Market Concepts (BMC).</span></p><p><u><span>You cannot redo the quizzes in Bloomberg Modules.</span></u></p><h4 id='part-ii-data-analysis-homework-group-work'><span>Part II: Data Analysis Homework (Group Work)</span></h4><p><span>Students use financial data to conduct data analysis.</span></p><h3 id='grading'><span>Grading:</span></h3><h4 id='bloomberg-courses-40'><strong><span>Bloomberg Courses: 40%</span></strong></h4><p><span>8 modules</span></p><h4 id='quiz-20'><strong><span>Quiz: 20%</span></strong></h4><p><span>4 in-class 10-min quizzes</span></p><p><span>Each quiz has 5 multiple choice questions which are based on previous slides and BMC courses. </span></p><h4 id='data-analysis-homework-group-work--40'><span> </span><strong><span>Data Analysis Homework (Group Work) : 40%</span></strong></h4><p><span>3 data analysis homework</span></p><p><strong><span>Total score &gt; 75% =&gt; PASS</span></strong></p><h3 id='completing-bloomberg-courses-is-a-must-to-pass-the-course'><u><strong><span>Completing Bloomberg Courses is a must to pass the course.</span></strong></u></h3><h4 id='late-policy'><span>Late Policy</span></h4><p><strong><span>Bloomberg Course Module (Individual work) has </span><u><span>20% off penalty per day</span></u><span> for late submission.</span></strong><span> </span></p><p><strong><span>Data analysis assignments (group work) will not be accepted under any circumstances beyond </span><u><span>Three</span></u><span> days past the designated due date.</span></strong></p><h3 id='tentative-course-schedule'><span>Tentative Course Schedule:</span></h3><figure class='table-figure'><table><thead><tr><th><strong><span>Week</span></strong></th><th><strong><span>Date</span></strong></th><th><strong><span>Class</span></strong></th><th><strong><span>Homework</span></strong></th><th><strong><span>Homework Due Date</span></strong></th><th><strong><span>Quiz</span></strong></th></tr></thead><tbody><tr><td><span>Week 1</span></td><td><span>09/01</span></td><td><span>Course Overview</span></td><td><span>BMC: Terminal Basics</span></td><td><span>09/08 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 2</span></td><td><span>09/08</span></td><td><span>Economic indicators</span></td><td><span>BMC: Economic indicators</span></td><td><span>09/15  11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 3</span></td><td><span>09/15</span></td><td><span>Currencies</span></td><td><span>BMC: Currencies</span></td><td><span>09/22 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 4</span></td><td><span>09/22</span></td><td><span>Tech Session: Data Query and Visualization</span></td><td><span>Tech HW: Single Stock beats the Market</span></td><td><span>10/06 11:59 pm</span></td><td><span>Quiz 1 (Economic indicators &amp; Currencies)</span></td></tr><tr><td><span>Week 5</span></td><td><span>09/29</span></td><td><span>Fixed income</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>Week 6</span></td><td><span>10/06</span></td><td><span>Fixed income</span></td><td><span>BMC: Fixed income</span></td><td><span>10/13 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 7</span></td><td><span>10/13</span></td><td><span>Tech Session: Statistical Inference</span></td><td><span>Tech HW: Really beat the market?</span></td><td><span>10/27 11:59 pm</span></td><td><span>Quiz 2 (Fixed Income)</span></td></tr><tr><td><span>Week 8</span></td><td><span>10/20</span></td><td><span>Equities</span></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><span>Week 9</span></td><td><span>10/27</span></td><td><span>Equities</span></td><td><span>BMC: Equities</span></td><td><span>11/03 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 10</span></td><td><span>11/03</span></td><td><span>Portfolio management</span></td><td><span>BMC: Portfolio Management</span></td><td><span>11/10 11:59 pm</span></td><td><span>Quiz 3 (Equities)</span></td></tr><tr><td><span>Week 11</span></td><td><span>11/10</span></td><td><span>Tech Session: Portfolio Optimization</span></td><td><span>Tech HW: Construct and Optimize a Portfolio</span></td><td><span>12/01 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 12</span></td><td><span>11/17</span></td><td><span>Commodities</span></td><td><span>BMC: Commodities</span></td><td><span>12/01 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 13</span></td><td><span>12/01</span></td><td><span>Equity Options</span></td><td><span>BMC: Equity Options</span></td><td><span>12/08 11:59 pm</span></td><td>&nbsp;</td></tr><tr><td><span>Week 14</span></td><td><span>12/08</span></td><td><span>Review and Celebrate</span></td><td>&nbsp;</td><td>&nbsp;</td><td><span>Quiz 4 (Equity options &amp; Commodities)</span></td></tr></tbody></table></figure><h3 id='classroom-courtesies'><span>Classroom Courtesies</span></h3><ol start='' ><li><p><span>Students are expected to arrive at class on time.</span></p></li><li><p><span>Coffee, soft drinks, are allowed.</span></p></li></ol><h3 id='academic-integrity'><span>Academic Integrity</span></h3><h3 id='undergraduate-honor-system'><strong><span>Undergraduate Honor System</span></strong></h3><p><span>Enrollment into the undergraduate class of Stevens Institute of Technology signifies a student&#39;s commitment to the Honor System. Accordingly, the provisions of the Stevens Honor System apply to all undergraduate students in coursework and Honor Board proceedings. It is the responsibility of each student to become acquainted with and to uphold the ideals set forth in the Honor System Constitution. More information about the Honor System including the constitution, bylaws, investigative procedures, and the penalty matrix can be found online at </span><a href='http://web.stevens.edu/honor/'><span>http://web.stevens.edu/honor/ (Links to an external site.)</span></a></p><p><span>The following pledge shall be written in full and signed by every student on all submitted work (including, but not limited to, homework, projects, lab reports, code, quizzes and exams) that is assigned by the course instructor. No work shall be graded unless the pledge is written in full and signed.</span></p><p><strong><span>“I pledge my honor that I have abided by the Stevens Honor System.”</span></strong></p><p><span>Reporting Honor System Violations</span></p><p><span>Students who believe a violation of the Honor System has been committed should report it within ten business days of the suspected violation. Students have the option to remain anonymous and can report violations online at </span><a href='http://www.stevens.edu/honor'><span>www.stevens.edu/honor (Links to an external site.)</span></a><span>.</span></p><h4 id='graduate-student-code-of-academic-integrity'><strong><span>Graduate Student Code of Academic Integrity</span></strong></h4><p><span>All Stevens graduate students promise to be fully truthful and avoid dishonesty, fraud, misrepresentation, and deceit of any type in relation to their academic work. A student’s submission of work for academic credit indicates that the work is the student&#39;s own. All outside assistance must be acknowledged. Any student who violates this code or who knowingly assists another student in violating this code shall be subject to discipline.</span></p><p><span>All graduate students are bound to the Graduate Student Code of Academic Integrity by enrollment in graduate coursework at Stevens. It is the responsibility of each graduate student to understand and adhere to the Graduate Student Code of Academic Integrity. More information including types of violations, the process for handling perceived violations, and types of sanctions can be found at </span><a href='http://www.stevens.edu/provost/graduate-academics'><span>www.stevens.edu/provost/graduate-academics (Links to an external site.)</span></a><span>.</span></p><p><span> </span></p><h4 id='special-provisions-for-undergraduate-students-in-500-level-courses'><strong><span>Special Provisions for Undergraduate Students in 500-level Courses</span></strong><span> </span></h4><p><span>The general provisions of the Stevens Honor System do not apply fully to graduate courses, 500 level or otherwise. Any student who wishes to report an undergraduate for a violation in a 500-level course shall submit the report to the Honor Board following the protocol for undergraduate courses, and an investigation will be conducted following the same process for an appeal on false accusation described in Section 8.04 of the Bylaws of the Honor System. Any student who wishes to report a graduate student may submit the report to the Dean of Graduate Academics or to the Honor Board, who will refer the report to the Dean. The Honor Board Chairman will give the Dean of Graduate Academics weekly updates on the progress of any casework relating to 500-level courses. For more information about the scope, penalties, and procedures pertaining to undergraduate students in 500-level courses, see Section 9 of the Bylaws of the Honor System document, located on the Honor Board website.</span></p><p><span> </span></p><h3 id='learning-accommodations'><span>Learning Accommodations</span></h3><p><span>Stevens Institute of Technology is dedicated to providing appropriate accommodations to students with documented disabilities. The Office of Disability Services (ODS) works with undergraduate and graduate students with learning disabilities, attention deficit-hyperactivity disorders, physical disabilities, sensory impairments, psychiatric disorders, and other such disabilities in order to help students achieve their academic and personal potential. They facilitate equal access to the educational programs and opportunities offered at Stevens and coordinate reasonable accommodations for eligible students. These services are designed to encourage independence and self-advocacy with support from the ODS staff. The ODS staff will facilitate the provision of accommodations on a case-by-case basis.</span></p><p><span>For more information about Disability Services and the process to receive accommodations, visit </span><a href='https://www.stevens.edu/office-disability-services'><span>https://www.stevens.edu/office-disability-services (Links to an external site.)</span></a><span>. If you have any questions please contact: Phillip Gehman, the Director of Disability Services Coordinator at Stevens Institute of Technology at </span><a href='mailto:pgehman@stevens.edu'><span>pgehman@stevens.edu</span></a><span> or by phone 201-216-3748.</span></p><p><span> </span></p><h4 id='disability-services-confidentiality-policy'><strong><span>Disability Services Confidentiality Policy</span></strong></h4><p><span>Student Disability Files are kept separate from academic files and are stored in a secure location within the Office of Disability Services. The Family Educational Rights Privacy Act (FERPA, 20 U.S.C. 1232g; 34CFR, Part 99) regulates disclosure of disability documentation and records maintained by Stevens Disability Services. According to this act, prior written consent by the student is required before our Disability Services office may release disability documentation or records to anyone. An exception is made in unusual circumstances, such as the case of health and safety emergencies.</span></p><p><span> </span></p><h3 id='inclusivity'><span>Inclusivity</span></h3><h4 id='name-and-pronoun-usage'><strong><span>Name and Pronoun Usage</span></strong></h4><p><span>As this course includes group work and class discussion, it is vitally important for us to create an educational environment of inclusion and mutual respect. This includes the ability for all students to have their chosen gender pronoun(s) and chosen name affirmed. If the class roster does not align with your name and/or pronouns, please inform the instructor of the necessary changes.</span></p><p><span> </span></p><h4 id='inclusion-statement'><strong><span>Inclusion Statement</span></strong></h4><p><span>Stevens Institute of Technology believes that diversity and inclusiveness are essential to excellence in academic discourse and innovation. In this class, the perspective of people of all races, ethnicities, gender expressions and gender identities, religions, sexual orientations, disabilities, socioeconomic backgrounds, and nationalities will be respected and viewed as a resource and benefit throughout the semester. Suggestions to further diversify class materials and assignments are encouraged. If any course meetings conflict with your religious events, please do not hesitate to reach out to your instructor to make alternative arrangements.</span></p><p><span>You are expected to treat your instructor and all other participants in the course with courtesy and respect. Disrespectful conduct and harassing statements will not be tolerated and may result in disciplinary actions.</span></p><p><span> </span></p><h3 id='mental-health-resources'><span>Mental Health Resources</span></h3><p><span>Part of being successful in the classroom involves a focus on your whole self, including your mental health. While you are at Stevens, there are many resources to promote and support mental health. The Office of Counseling and Psychological Services (CAPS) offers free and confidential services to all enrolled students who are struggling to cope with personal issues (e.g., difficulty adjusting to college or trouble managing stress) or psychological difficulties (e.g., anxiety and depression). Appointments are can be made by phone (201-216-5177).</span></p><p><span> </span></p><h3 id='emergency-information'><span>Emergency Information</span></h3><p><span>In the event of an urgent or emergent concern about the safety of yourself or someone else in the Stevens community, please immediately call the Stevens Campus Police at 201-216-5105 or on their emergency line at 201-216-3911. These phone lines are staffed 24/7, year-round. For students who do not reside near the campus and require emergency support, please contact your local emergency response providers at 911 or via your local police precinct. Other 24/7 national resources for students dealing with mental health crises include the National Suicide Prevention Lifeline (1-800-273-8255) and the Crisis Text Line (text “Home” to 741-741). If you are concerned about the wellbeing of another Stevens student, and the matter is </span><em><span>not</span></em><span> urgent or time-sensitive, please email the CARE Team at </span><a href='mailto:care@stevens.edu'><span>care@stevens.edu</span></a><span>. A member of the CARE Team will respond to your concern as soon as possible.  </span></p><p><span> </span></p></div></div>
+</body>
+</html>
